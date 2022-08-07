@@ -1,0 +1,191 @@
+2022/08/07 14:11:24 Barbeiro dorme
+2022/08/07 14:11:24 cliente 0 sentou na fila
+2022/08/07 14:11:24 cliente 2 sentou na fila
+2022/08/07 14:11:24 cliente 0 acordou o barbeiro
+2022/08/07 14:11:24 cliente 1 sentou na fila
+2022/08/07 14:11:24 cliente 0 foi atendido
+2022/08/07 14:11:24 cliente 3 sentou na fila
+2022/08/07 14:11:24 cliente 4 sentou na fila
+2022/08/07 14:11:24 cliente 2 foi atendido
+2022/08/07 14:11:24 cliente 1 foi atendido
+2022/08/07 14:11:24 cliente 3 foi atendido
+2022/08/07 14:11:24 cliente 5 sentou na fila
+2022/08/07 14:11:24 cliente 4 foi atendido
+2022/08/07 14:11:24 cliente 6 sentou na fila
+2022/08/07 14:11:24 cliente 5 foi atendido
+2022/08/07 14:11:24 cliente 6 foi atendido
+2022/08/07 14:11:24 Barbeiro dorme
+2022/08/07 14:11:24 cliente 7 sentou na fila
+2022/08/07 14:11:24 cliente 7 acordou o barbeiro
+2022/08/07 14:11:24 cliente 7 foi atendido
+2022/08/07 14:11:24 Barbeiro dorme
+2022/08/07 14:11:24 cliente 8 sentou na fila
+2022/08/07 14:11:24 cliente 8 acordou o barbeiro
+2022/08/07 14:11:24 cliente 8 foi atendido
+2022/08/07 14:11:24 Barbeiro dorme
+2022/08/07 14:11:24 cliente 9 sentou na fila
+2022/08/07 14:11:24 cliente 9 acordou o barbeiro
+2022/08/07 14:11:24 cliente 9 foi atendido
+2022/08/07 14:11:24 Barbeiro dorme
+2022/08/07 14:11:24 cliente 11 sentou na fila
+2022/08/07 14:11:24 cliente 11 acordou o barbeiro
+2022/08/07 14:11:24 cliente 10 sentou na fila
+2022/08/07 14:11:24 cliente 11 foi atendido
+2022/08/07 14:11:24 cliente 12 sentou na fila
+2022/08/07 14:11:24 cliente 10 foi atendido
+2022/08/07 14:11:24 cliente 13 sentou na fila
+2022/08/07 14:11:24 cliente 12 foi atendido
+2022/08/07 14:11:24 cliente 14 sentou na fila
+2022/08/07 14:11:24 cliente 15 sentou na fila
+2022/08/07 14:11:24 cliente 16 sentou na fila
+2022/08/07 14:11:24 cliente 17 sentou na fila
+2022/08/07 14:11:24 cliente 13 foi atendido
+2022/08/07 14:11:24 cliente 18 sentou na fila
+2022/08/07 14:11:24 cliente 19 sentou na fila
+2022/08/07 14:11:24 cliente 21 sentou na fila
+2022/08/07 14:11:24 cliente 14 foi atendido
+2022/08/07 14:11:24 cliente 20 foi embora, pois a barbearia estava cheia
+2022/08/07 14:11:24 cliente 23 sentou na fila
+2022/08/07 14:11:24 cliente 22 foi embora, pois a barbearia estava cheia
+2022/08/07 14:11:24 cliente 15 foi atendido
+2022/08/07 14:11:24 cliente 16 foi atendido
+2022/08/07 14:11:24 cliente 25 sentou na fila
+2022/08/07 14:11:24 cliente 24 sentou na fila
+2022/08/07 14:11:24 cliente 27 foi embora, pois a barbearia estava cheia
+2022/08/07 14:11:24 cliente 26 foi embora, pois a barbearia estava cheia
+2022/08/07 14:11:24 cliente 17 foi atendido
+2022/08/07 14:11:24 cliente 18 foi atendido
+2022/08/07 14:11:24 cliente 19 foi atendido
+2022/08/07 14:11:24 cliente 28 sentou na fila
+2022/08/07 14:11:24 cliente 29 sentou na fila
+2022/08/07 14:11:24 cliente 30 sentou na fila
+2022/08/07 14:11:24 cliente 31 sentou na fila
+2022/08/07 14:11:24 cliente 33 foi embora, pois a barbearia estava cheia
+2022/08/07 14:11:24 cliente 21 foi atendido
+2022/08/07 14:11:24 cliente 23 foi atendido
+2022/08/07 14:11:24 cliente 32 sentou na fila
+2022/08/07 14:11:24 cliente 34 foi embora, pois a barbearia estava cheia
+2022/08/07 14:11:24 cliente 25 foi atendido
+2022/08/07 14:11:24 cliente 35 sentou na fila
+2022/08/07 14:11:24 cliente 24 foi atendido
+2022/08/07 14:11:24 cliente 28 foi atendido
+2022/08/07 14:11:24 cliente 36 sentou na fila
+2022/08/07 14:11:24 cliente 37 sentou na fila
+2022/08/07 14:11:24 cliente 38 foi embora, pois a barbearia estava cheia
+2022/08/07 14:11:24 cliente 29 foi atendido
+2022/08/07 14:11:24 cliente 30 foi atendido
+2022/08/07 14:11:24 cliente 39 sentou na fila
+2022/08/07 14:11:24 cliente 40 sentou na fila
+2022/08/07 14:11:24 cliente 31 foi atendido
+2022/08/07 14:11:24 cliente 32 foi atendido
+2022/08/07 14:11:24 cliente 35 foi atendido
+2022/08/07 14:11:24 cliente 41 sentou na fila
+2022/08/07 14:11:24 cliente 36 foi atendido
+2022/08/07 14:11:24 cliente 44 sentou na fila
+2022/08/07 14:11:24 cliente 42 sentou na fila
+2022/08/07 14:11:24 cliente 43 sentou na fila
+2022/08/07 14:11:24 cliente 37 foi atendido
+2022/08/07 14:11:24 cliente 39 foi atendido
+2022/08/07 14:11:24 cliente 45 foi embora, pois a barbearia estava cheia
+2022/08/07 14:11:24 cliente 47 sentou na fila
+2022/08/07 14:11:24 cliente 40 foi atendido
+2022/08/07 14:11:24 cliente 46 sentou na fila
+2022/08/07 14:11:24 cliente 41 foi atendido
+2022/08/07 14:11:24 cliente 48 sentou na fila
+2022/08/07 14:11:24 cliente 44 foi atendido
+2022/08/07 14:11:24 cliente 49 sentou na fila
+2022/08/07 14:11:24 cliente 50 sentou na fila
+2022/08/07 14:11:24 cliente 42 foi atendido
+2022/08/07 14:11:24 cliente 51 sentou na fila
+2022/08/07 14:11:24 cliente 43 foi atendido
+2022/08/07 14:11:24 cliente 47 foi atendido
+2022/08/07 14:11:24 cliente 46 foi atendido
+2022/08/07 14:11:24 cliente 52 sentou na fila
+2022/08/07 14:11:24 cliente 53 sentou na fila
+2022/08/07 14:11:24 cliente 48 foi atendido
+2022/08/07 14:11:24 cliente 55 sentou na fila
+2022/08/07 14:11:24 cliente 54 sentou na fila
+2022/08/07 14:11:24 cliente 56 foi embora, pois a barbearia estava cheia
+2022/08/07 14:11:24 cliente 58 foi embora, pois a barbearia estava cheia
+2022/08/07 14:11:24 cliente 57 foi embora, pois a barbearia estava cheia
+2022/08/07 14:11:24 cliente 49 foi atendido
+2022/08/07 14:11:24 cliente 59 sentou na fila
+2022/08/07 14:11:24 cliente 50 foi atendido
+2022/08/07 14:11:24 cliente 60 sentou na fila
+2022/08/07 14:11:24 cliente 51 foi atendido
+2022/08/07 14:11:24 cliente 52 foi atendido
+2022/08/07 14:11:24 cliente 62 sentou na fila
+2022/08/07 14:11:24 cliente 61 sentou na fila
+2022/08/07 14:11:24 cliente 53 foi atendido
+2022/08/07 14:11:24 cliente 63 sentou na fila
+2022/08/07 14:11:24 cliente 64 foi embora, pois a barbearia estava cheia
+2022/08/07 14:11:24 cliente 55 foi atendido
+2022/08/07 14:11:24 cliente 66 sentou na fila
+2022/08/07 14:11:24 cliente 65 foi embora, pois a barbearia estava cheia
+2022/08/07 14:11:24 cliente 54 foi atendido
+2022/08/07 14:11:24 cliente 67 sentou na fila
+2022/08/07 14:11:24 cliente 59 foi atendido
+2022/08/07 14:11:24 cliente 60 foi atendido
+2022/08/07 14:11:24 cliente 68 sentou na fila
+2022/08/07 14:11:24 cliente 69 sentou na fila
+2022/08/07 14:11:24 cliente 62 foi atendido
+2022/08/07 14:11:24 cliente 71 sentou na fila
+2022/08/07 14:11:24 cliente 70 foi embora, pois a barbearia estava cheia
+2022/08/07 14:11:24 cliente 61 foi atendido
+2022/08/07 14:11:24 cliente 72 sentou na fila
+2022/08/07 14:11:24 cliente 63 foi atendido
+2022/08/07 14:11:24 cliente 66 foi atendido
+2022/08/07 14:11:24 cliente 73 sentou na fila
+2022/08/07 14:11:24 cliente 75 sentou na fila
+2022/08/07 14:11:24 cliente 74 foi embora, pois a barbearia estava cheia
+2022/08/07 14:11:24 cliente 76 foi embora, pois a barbearia estava cheia
+2022/08/07 14:11:24 cliente 77 foi embora, pois a barbearia estava cheia
+2022/08/07 14:11:24 cliente 67 foi atendido
+2022/08/07 14:11:24 cliente 68 foi atendido
+2022/08/07 14:11:24 cliente 78 sentou na fila
+2022/08/07 14:11:24 cliente 79 sentou na fila
+2022/08/07 14:11:24 cliente 69 foi atendido
+2022/08/07 14:11:24 cliente 71 foi atendido
+2022/08/07 14:11:24 cliente 72 foi atendido
+2022/08/07 14:11:24 cliente 73 foi atendido
+2022/08/07 14:11:24 cliente 80 sentou na fila
+2022/08/07 14:11:24 cliente 75 foi atendido
+2022/08/07 14:11:24 cliente 78 foi atendido
+2022/08/07 14:11:24 cliente 79 foi atendido
+2022/08/07 14:11:24 cliente 81 sentou na fila
+2022/08/07 14:11:24 cliente 80 foi atendido
+2022/08/07 14:11:24 cliente 82 sentou na fila
+2022/08/07 14:11:24 cliente 83 sentou na fila
+2022/08/07 14:11:24 cliente 81 foi atendido
+2022/08/07 14:11:24 cliente 82 foi atendido
+2022/08/07 14:11:24 cliente 84 sentou na fila
+2022/08/07 14:11:24 cliente 83 foi atendido
+2022/08/07 14:11:24 cliente 84 foi atendido
+2022/08/07 14:11:24 Barbeiro dorme
+2022/08/07 14:11:24 cliente 85 sentou na fila
+2022/08/07 14:11:24 cliente 85 acordou o barbeiro
+2022/08/07 14:11:24 cliente 85 foi atendido
+2022/08/07 14:11:24 Barbeiro dorme
+2022/08/07 14:11:24 cliente 88 sentou na fila
+2022/08/07 14:11:24 cliente 86 sentou na fila
+2022/08/07 14:11:24 cliente 88 acordou o barbeiro
+2022/08/07 14:11:24 cliente 87 sentou na fila
+2022/08/07 14:11:24 cliente 89 sentou na fila
+2022/08/07 14:11:24 cliente 88 foi atendido
+2022/08/07 14:11:24 cliente 86 foi atendido
+2022/08/07 14:11:24 cliente 92 sentou na fila
+2022/08/07 14:11:24 cliente 90 sentou na fila
+2022/08/07 14:11:24 cliente 91 sentou na fila
+2022/08/07 14:11:24 cliente 94 sentou na fila
+2022/08/07 14:11:24 cliente 95 sentou na fila
+2022/08/07 14:11:24 cliente 93 foi embora, pois a barbearia estava cheia
+2022/08/07 14:11:24 cliente 96 foi embora, pois a barbearia estava cheia
+2022/08/07 14:11:24 cliente 99 foi embora, pois a barbearia estava cheia
+2022/08/07 14:11:24 cliente 98 foi embora, pois a barbearia estava cheia
+2022/08/07 14:11:24 cliente 87 foi atendido
+2022/08/07 14:11:24 cliente 97 foi embora, pois a barbearia estava cheia
+2022/08/07 14:11:24 cliente 89 foi atendido
+2022/08/07 14:11:24 cliente 92 foi atendido
+2022/08/07 14:11:24 cliente 90 foi atendido
+2022/08/07 14:11:24 cliente 91 foi atendido
+2022/08/07 14:11:24 cliente 94 foi atendido
