@@ -1,53 +1,113 @@
 package main
 
 import (
+	"fmt"
 	"math/rand"
 	"sync"
+	"time"
 )
 
-func produce(productVessel *int) {
-	*productVessel = rand.Intn(100)
+type Queue struct {
+	queueSize  int
+	isAvaiable bool
+	sync.Mutex
 }
 
-func producer(productVessel *int, marketIsOpen *bool, consumeCond *sync.Cond) {
-	for *marketIsOpen {
+func (q *Queue) Init() {
+	q.changeQueueSize(0)
+	q.setAvailability(true)
+}
 
+func (q *Queue) setAvailability(status bool) {
+	q.Mutex.Lock()
+
+	q.isAvaiable = status
+
+	q.Mutex.Unlock()
+}
+
+func (q *Queue) changeQueueSize(newSize int) {
+	q.Mutex.Lock()
+
+	q.queueSize = newSize
+
+	q.Mutex.Unlock()
+}
+
+var consumeCond = sync.NewCond(&sync.Mutex{})
+var produceCond = sync.NewCond(&sync.Mutex{})
+var getProductQueue *Queue
+var productVessel int
+
+func produce(n int) {
+	productVessel = n
+	fmt.Printf("produtor produziu %d\n", productVessel)
+
+	for getProductQueue.queueSize > 0 {
+		consumeCond.Broadcast()
 	}
 }
 
-func consume(productVessel *int, consumeCond *sync.Cond) int {
+func producer(marketIsOpen *bool) {
+	for *marketIsOpen {
+		produceCond.L.Lock()
+
+		produceCond.Wait()
+
+		getProductQueue.setAvailability(false)
+		fmt.Println("Produtor acordou")
+		produceCond.L.Unlock()
+
+		produce(rand.Intn(100))
+
+		getProductQueue.setAvailability(true)
+		fmt.Println("Produtor limpou o produto")
+	}
+}
+
+func consume(consumerId int) int {
 	consumeCond.L.Lock()
 
-	for *productVessel == -1 {
-		consumeCond.Wait()
-	}
+	getProductQueue.changeQueueSize(getProductQueue.queueSize + 1)
 
-	product := *productVessel
+	fmt.Printf("consumidor %d requisitou ao produtor\n", consumerId)
+
+	produceCond.Signal()
+	consumeCond.Wait()
+	fmt.Printf("consumidor %d acordou\n", consumerId)
+
+	product := productVessel
+
+	getProductQueue.changeQueueSize(getProductQueue.queueSize - 1)
+	fmt.Printf("consumidor %d consumiu %d\n", consumerId, product)
+	consumeCond.L.Unlock()
 
 	return product
 }
 
-func consumer(consumerId int, productVessel *int, consumeCond *sync.Cond, wg *sync.WaitGroup) {
+func consumer(consumerId int, wg *sync.WaitGroup) {
 	defer wg.Done()
-
-	consume(productVessel, consumeCond)
+	for !getProductQueue.isAvaiable {
+	}
+	consume(consumerId)
 }
 
 func main() {
 	marketIsOpen := true
-	productVessel := -1
-
 	numberOfConsumers := 100
+	rand.Seed(time.Now().UnixNano())
+	productVessel = 0
 
-	consumeCond := sync.NewCond(&sync.Mutex{})
+	getProductQueue = new(Queue)
+	getProductQueue.Init()
 
 	var wg sync.WaitGroup
 	wg.Add(numberOfConsumers)
 
-	go producer(&productVessel, &marketIsOpen, consumeCond)
+	go producer(&marketIsOpen)
 
 	for i := 0; i < numberOfConsumers; i++ {
-		go consumer(i, &productVessel, consumeCond, &wg)
+		go consumer(i, &wg)
 	}
 
 	wg.Wait()
