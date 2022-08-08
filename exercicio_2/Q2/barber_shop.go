@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-func logIteration(barber_shop_entry *chan string) {
+func logIteration(barberShopEntry *chan string) {
 	f, err := os.OpenFile("historico.txt", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if err != nil {
 		log.Fatalf("error opening file: %v", err)
@@ -19,73 +19,73 @@ func logIteration(barber_shop_entry *chan string) {
 	log.SetOutput(f)
 
 	var logEntry string
-	for len(*barber_shop_entry) != 0 {
-		logEntry = <-*barber_shop_entry
+	for len(*barberShopEntry) != 0 {
+		logEntry = <-*barberShopEntry
 		log.Printf("%s\n", logEntry)
 	}
 
 }
 
-func cutHair(isSleeping *bool, barber_shop_entry *chan string, clientNumber int) {
+func cutHair(isSleeping *bool, barberShopEntry *chan string, clientNumber int) {
 	if *isSleeping {
-		*barber_shop_entry <- fmt.Sprintf("cliente %d acordou o barbeiro", clientNumber)
+		*barberShopEntry <- fmt.Sprintf("cliente %d acordou o barbeiro", clientNumber)
 		*isSleeping = false
 	}
 	time.Sleep(time.Duration(rand.Intn(4)) * time.Nanosecond)
-	*barber_shop_entry <- fmt.Sprintf("cliente %d foi atendido", clientNumber)
+	*barberShopEntry <- fmt.Sprintf("cliente %d foi atendido", clientNumber)
 }
 
-func barber(isClosed *bool, barber_shop_queue *chan int, barber_shop_entry *chan string) {
+func barber(isClosed *bool, barberShopQueue *chan int, barberShopEntry *chan string) {
 	var clientNumber int
 	isSleeping := false
 	for !*isClosed {
-		if len(*barber_shop_queue) == 0 {
+		if len(*barberShopQueue) == 0 {
 			if !isSleeping {
-				*barber_shop_entry <- "Barbeiro dorme"
+				*barberShopEntry <- "Barbeiro dorme"
 				isSleeping = true
 			}
 		} else {
-			clientNumber = <-*barber_shop_queue
+			clientNumber = <-*barberShopQueue
 			if clientNumber != -1 {
-				cutHair(&isSleeping, barber_shop_entry, clientNumber)
+				cutHair(&isSleeping, barberShopEntry, clientNumber)
 			}
 		}
 	}
 }
 
-func client(number int, barber_shop_queue *chan int, barber_shop_entry *chan string, sync_barber_shop *sync.Mutex) {
-	if len(*barber_shop_queue) == cap(*barber_shop_queue) {
-		*barber_shop_entry <- fmt.Sprintf("cliente %d foi embora, pois a barbearia estava cheia", number)
+func client(number int, barberShopQueue *chan int, barberShopEntry *chan string, syncBarberShop *sync.Mutex) {
+	if len(*barberShopQueue) == cap(*barberShopQueue) {
+		*barberShopEntry <- fmt.Sprintf("cliente %d foi embora, pois a barbearia estava cheia", number)
 		return
 	}
 
-	sync_barber_shop.Lock()
-	defer sync_barber_shop.Unlock()
-	*barber_shop_entry <- fmt.Sprintf("cliente %d sentou na fila", number)
-	*barber_shop_queue <- number
+	syncBarberShop.Lock()
+	defer syncBarberShop.Unlock()
+	*barberShopEntry <- fmt.Sprintf("cliente %d sentou na fila", number)
+	*barberShopQueue <- number
 }
 
 func main() {
 	iterations := 100
 	queue_size := 6
-	var barber_shop_queue = make(chan int, queue_size)
-	var barber_shop_entry = make(chan string, 3*iterations)
-	var sync_barber_shop sync.Mutex
+	var barberShopQueue = make(chan int, queue_size)
+	var barberShopEntry = make(chan string, 3*iterations)
+	var syncBarberShop sync.Mutex
 
 	isClosed := false
-	go barber(&isClosed, &barber_shop_queue, &barber_shop_entry)
+	go barber(&isClosed, &barberShopQueue, &barberShopEntry)
 
-	for curr_iteration := 0; curr_iteration < iterations; curr_iteration++ {
+	for currIteration := 0; currIteration < iterations; currIteration++ {
 		time.Sleep(time.Duration(rand.Intn(3)) * time.Nanosecond)
-		go client(curr_iteration, &barber_shop_queue, &barber_shop_entry, &sync_barber_shop)
+		go client(currIteration, &barberShopQueue, &barberShopEntry, &syncBarberShop)
 	}
 
 	//Guarda as cadeiras da fila
 	for i := 0; i < queue_size; i++ {
-		barber_shop_queue <- -1
+		barberShopQueue <- -1
 	}
 
 	isClosed = true
 
-	logIteration(&barber_shop_entry)
+	logIteration(&barberShopEntry)
 }
