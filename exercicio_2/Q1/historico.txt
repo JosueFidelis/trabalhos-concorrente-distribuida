@@ -1,0 +1,321 @@
+2022/08/08 02:40:05 consumidor 10 requisitou ao produtor
+2022/08/08 02:40:05 Produtor acordou
+2022/08/08 02:40:05 produtor produziu 17
+2022/08/08 02:40:05 consumidor 34 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 34 acordou
+2022/08/08 02:40:05 consumidor 34 consumiu 17
+2022/08/08 02:40:05 consumidor 16 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 16 acordou
+2022/08/08 02:40:05 consumidor 16 consumiu 17
+2022/08/08 02:40:05 consumidor 11 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 11 acordou
+2022/08/08 02:40:05 consumidor 11 consumiu 17
+2022/08/08 02:40:05 consumidor 12 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 12 acordou
+2022/08/08 02:40:05 consumidor 12 consumiu 17
+2022/08/08 02:40:05 consumidor 13 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 13 acordou
+2022/08/08 02:40:05 consumidor 13 consumiu 17
+2022/08/08 02:40:05 consumidor 14 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 14 acordou
+2022/08/08 02:40:05 consumidor 14 consumiu 17
+2022/08/08 02:40:05 consumidor 15 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 15 acordou
+2022/08/08 02:40:05 consumidor 15 consumiu 17
+2022/08/08 02:40:05 consumidor 22 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 22 acordou
+2022/08/08 02:40:05 consumidor 22 consumiu 17
+2022/08/08 02:40:05 consumidor 17 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 17 acordou
+2022/08/08 02:40:05 consumidor 17 consumiu 17
+2022/08/08 02:40:05 consumidor 18 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 18 acordou
+2022/08/08 02:40:05 consumidor 18 consumiu 17
+2022/08/08 02:40:05 consumidor 19 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 19 acordou
+2022/08/08 02:40:05 consumidor 19 consumiu 17
+2022/08/08 02:40:05 consumidor 20 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 20 acordou
+2022/08/08 02:40:05 consumidor 20 consumiu 17
+2022/08/08 02:40:05 consumidor 21 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 21 acordou
+2022/08/08 02:40:05 consumidor 21 consumiu 17
+2022/08/08 02:40:05 consumidor 4 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 4 acordou
+2022/08/08 02:40:05 consumidor 4 consumiu 17
+2022/08/08 02:40:05 consumidor 0 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 0 acordou
+2022/08/08 02:40:05 consumidor 0 consumiu 17
+2022/08/08 02:40:05 consumidor 1 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 1 acordou
+2022/08/08 02:40:05 consumidor 1 consumiu 17
+2022/08/08 02:40:05 consumidor 2 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 2 acordou
+2022/08/08 02:40:05 consumidor 2 consumiu 17
+2022/08/08 02:40:05 consumidor 3 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 3 acordou
+2022/08/08 02:40:05 consumidor 3 consumiu 17
+2022/08/08 02:40:05 consumidor 27 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 27 acordou
+2022/08/08 02:40:05 consumidor 27 consumiu 17
+2022/08/08 02:40:05 consumidor 23 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 23 acordou
+2022/08/08 02:40:05 consumidor 23 consumiu 17
+2022/08/08 02:40:05 consumidor 24 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 24 acordou
+2022/08/08 02:40:05 consumidor 24 consumiu 17
+2022/08/08 02:40:05 consumidor 25 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 25 acordou
+2022/08/08 02:40:05 consumidor 25 consumiu 17
+2022/08/08 02:40:05 consumidor 26 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 26 acordou
+2022/08/08 02:40:05 consumidor 26 consumiu 17
+2022/08/08 02:40:05 consumidor 7 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 7 acordou
+2022/08/08 02:40:05 consumidor 7 consumiu 17
+2022/08/08 02:40:05 consumidor 5 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 5 acordou
+2022/08/08 02:40:05 consumidor 5 consumiu 17
+2022/08/08 02:40:05 consumidor 6 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 6 acordou
+2022/08/08 02:40:05 consumidor 6 consumiu 17
+2022/08/08 02:40:05 consumidor 31 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 31 acordou
+2022/08/08 02:40:05 consumidor 31 consumiu 17
+2022/08/08 02:40:05 consumidor 28 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 28 acordou
+2022/08/08 02:40:05 consumidor 28 consumiu 17
+2022/08/08 02:40:05 consumidor 29 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 29 acordou
+2022/08/08 02:40:05 consumidor 29 consumiu 17
+2022/08/08 02:40:05 consumidor 30 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 30 acordou
+2022/08/08 02:40:05 consumidor 30 consumiu 17
+2022/08/08 02:40:05 consumidor 8 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 8 acordou
+2022/08/08 02:40:05 consumidor 8 consumiu 17
+2022/08/08 02:40:05 consumidor 9 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 9 acordou
+2022/08/08 02:40:05 consumidor 9 consumiu 17
+2022/08/08 02:40:05 consumidor 10 acordou
+2022/08/08 02:40:05 consumidor 10 consumiu 17
+2022/08/08 02:40:05 consumidor 99 requisitou ao produtor
+2022/08/08 02:40:05 Produtor limpou o produto
+2022/08/08 02:40:05 consumidor 32 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 67 requisitou ao produtor
+2022/08/08 02:40:05 Produtor acordou
+2022/08/08 02:40:05 produtor produziu 29
+2022/08/08 02:40:05 consumidor 35 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 35 acordou
+2022/08/08 02:40:05 consumidor 35 consumiu 29
+2022/08/08 02:40:05 consumidor 68 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 68 acordou
+2022/08/08 02:40:05 consumidor 68 consumiu 29
+2022/08/08 02:40:05 consumidor 99 acordou
+2022/08/08 02:40:05 consumidor 99 consumiu 29
+2022/08/08 02:40:05 consumidor 32 acordou
+2022/08/08 02:40:05 consumidor 32 consumiu 29
+2022/08/08 02:40:05 consumidor 67 acordou
+2022/08/08 02:40:05 consumidor 67 consumiu 29
+2022/08/08 02:40:05 Produtor limpou o produto
+2022/08/08 02:40:05 consumidor 70 requisitou ao produtor
+2022/08/08 02:40:05 Produtor acordou
+2022/08/08 02:40:05 produtor produziu 85
+2022/08/08 02:40:05 consumidor 33 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 69 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 70 acordou
+2022/08/08 02:40:05 consumidor 70 consumiu 85
+2022/08/08 02:40:05 consumidor 69 acordou
+2022/08/08 02:40:05 consumidor 69 consumiu 85
+2022/08/08 02:40:05 consumidor 33 acordou
+2022/08/08 02:40:05 consumidor 33 consumiu 85
+2022/08/08 02:40:05 consumidor 43 requisitou ao produtor
+2022/08/08 02:40:05 Produtor limpou o produto
+2022/08/08 02:40:05 consumidor 79 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 47 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 38 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 80 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 48 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 49 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 77 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 81 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 82 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 83 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 54 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 50 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 51 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 88 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 87 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 90 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 72 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 55 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 78 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 44 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 91 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 52 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 84 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 74 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 93 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 94 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 95 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 96 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 97 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 36 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 98 requisitou ao produtor
+2022/08/08 02:40:05 Produtor acordou
+2022/08/08 02:40:05 produtor produziu 61
+2022/08/08 02:40:05 consumidor 73 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 73 acordou
+2022/08/08 02:40:05 consumidor 73 consumiu 61
+2022/08/08 02:40:05 consumidor 53 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 53 acordou
+2022/08/08 02:40:05 consumidor 53 consumiu 61
+2022/08/08 02:40:05 consumidor 85 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 85 acordou
+2022/08/08 02:40:05 consumidor 85 consumiu 61
+2022/08/08 02:40:05 consumidor 86 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 86 acordou
+2022/08/08 02:40:05 consumidor 86 consumiu 61
+2022/08/08 02:40:05 consumidor 89 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 89 acordou
+2022/08/08 02:40:05 consumidor 89 consumiu 61
+2022/08/08 02:40:05 consumidor 46 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 46 acordou
+2022/08/08 02:40:05 consumidor 46 consumiu 61
+2022/08/08 02:40:05 consumidor 39 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 39 acordou
+2022/08/08 02:40:05 consumidor 39 consumiu 61
+2022/08/08 02:40:05 consumidor 45 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 45 acordou
+2022/08/08 02:40:05 consumidor 45 consumiu 61
+2022/08/08 02:40:05 consumidor 92 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 92 acordou
+2022/08/08 02:40:05 consumidor 92 consumiu 61
+2022/08/08 02:40:05 consumidor 40 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 40 acordou
+2022/08/08 02:40:05 consumidor 40 consumiu 61
+2022/08/08 02:40:05 consumidor 56 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 56 acordou
+2022/08/08 02:40:05 consumidor 56 consumiu 61
+2022/08/08 02:40:05 consumidor 75 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 75 acordou
+2022/08/08 02:40:05 consumidor 75 consumiu 61
+2022/08/08 02:40:05 consumidor 98 acordou
+2022/08/08 02:40:05 consumidor 98 consumiu 61
+2022/08/08 02:40:05 consumidor 43 acordou
+2022/08/08 02:40:05 consumidor 43 consumiu 61
+2022/08/08 02:40:05 consumidor 47 acordou
+2022/08/08 02:40:05 consumidor 47 consumiu 61
+2022/08/08 02:40:05 consumidor 79 acordou
+2022/08/08 02:40:05 consumidor 79 consumiu 61
+2022/08/08 02:40:05 consumidor 80 acordou
+2022/08/08 02:40:05 consumidor 80 consumiu 61
+2022/08/08 02:40:05 consumidor 38 acordou
+2022/08/08 02:40:05 consumidor 38 consumiu 61
+2022/08/08 02:40:05 consumidor 49 acordou
+2022/08/08 02:40:05 consumidor 49 consumiu 61
+2022/08/08 02:40:05 consumidor 48 acordou
+2022/08/08 02:40:05 consumidor 48 consumiu 61
+2022/08/08 02:40:05 consumidor 81 acordou
+2022/08/08 02:40:05 consumidor 81 consumiu 61
+2022/08/08 02:40:05 consumidor 82 acordou
+2022/08/08 02:40:05 consumidor 82 consumiu 61
+2022/08/08 02:40:05 consumidor 77 acordou
+2022/08/08 02:40:05 consumidor 77 consumiu 61
+2022/08/08 02:40:05 consumidor 83 acordou
+2022/08/08 02:40:05 consumidor 83 consumiu 61
+2022/08/08 02:40:05 consumidor 54 acordou
+2022/08/08 02:40:05 consumidor 54 consumiu 61
+2022/08/08 02:40:05 consumidor 50 acordou
+2022/08/08 02:40:05 consumidor 50 consumiu 61
+2022/08/08 02:40:05 consumidor 51 acordou
+2022/08/08 02:40:05 consumidor 51 consumiu 61
+2022/08/08 02:40:05 consumidor 88 acordou
+2022/08/08 02:40:05 consumidor 88 consumiu 61
+2022/08/08 02:40:05 consumidor 87 acordou
+2022/08/08 02:40:05 consumidor 87 consumiu 61
+2022/08/08 02:40:05 consumidor 90 acordou
+2022/08/08 02:40:05 consumidor 90 consumiu 61
+2022/08/08 02:40:05 consumidor 72 acordou
+2022/08/08 02:40:05 consumidor 72 consumiu 61
+2022/08/08 02:40:05 consumidor 55 acordou
+2022/08/08 02:40:05 consumidor 55 consumiu 61
+2022/08/08 02:40:05 consumidor 78 acordou
+2022/08/08 02:40:05 consumidor 78 consumiu 61
+2022/08/08 02:40:05 consumidor 44 acordou
+2022/08/08 02:40:05 consumidor 44 consumiu 61
+2022/08/08 02:40:05 consumidor 91 acordou
+2022/08/08 02:40:05 consumidor 91 consumiu 61
+2022/08/08 02:40:05 consumidor 52 acordou
+2022/08/08 02:40:05 consumidor 52 consumiu 61
+2022/08/08 02:40:05 consumidor 84 acordou
+2022/08/08 02:40:05 consumidor 84 consumiu 61
+2022/08/08 02:40:05 consumidor 74 acordou
+2022/08/08 02:40:05 consumidor 74 consumiu 61
+2022/08/08 02:40:05 consumidor 93 acordou
+2022/08/08 02:40:05 consumidor 93 consumiu 61
+2022/08/08 02:40:05 consumidor 94 acordou
+2022/08/08 02:40:05 consumidor 94 consumiu 61
+2022/08/08 02:40:05 consumidor 95 acordou
+2022/08/08 02:40:05 consumidor 95 consumiu 61
+2022/08/08 02:40:05 consumidor 96 acordou
+2022/08/08 02:40:05 consumidor 96 consumiu 61
+2022/08/08 02:40:05 consumidor 97 acordou
+2022/08/08 02:40:05 consumidor 97 consumiu 61
+2022/08/08 02:40:05 consumidor 36 acordou
+2022/08/08 02:40:05 consumidor 36 consumiu 61
+2022/08/08 02:40:05 consumidor 58 requisitou ao produtor
+2022/08/08 02:40:05 Produtor limpou o produto
+2022/08/08 02:40:05 consumidor 37 requisitou ao produtor
+2022/08/08 02:40:05 Produtor acordou
+2022/08/08 02:40:05 consumidor 41 requisitou ao produtor
+2022/08/08 02:40:05 produtor produziu 20
+2022/08/08 02:40:05 consumidor 76 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 76 acordou
+2022/08/08 02:40:05 consumidor 76 consumiu 20
+2022/08/08 02:40:05 consumidor 58 acordou
+2022/08/08 02:40:05 consumidor 58 consumiu 20
+2022/08/08 02:40:05 consumidor 37 acordou
+2022/08/08 02:40:05 consumidor 37 consumiu 20
+2022/08/08 02:40:05 consumidor 41 acordou
+2022/08/08 02:40:05 consumidor 41 consumiu 20
+2022/08/08 02:40:05 Produtor limpou o produto
+2022/08/08 02:40:05 consumidor 57 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 71 requisitou ao produtor
+2022/08/08 02:40:05 Produtor acordou
+2022/08/08 02:40:05 consumidor 66 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 62 requisitou ao produtor
+2022/08/08 02:40:05 produtor produziu 52
+2022/08/08 02:40:05 consumidor 61 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 61 acordou
+2022/08/08 02:40:05 consumidor 61 consumiu 52
+2022/08/08 02:40:05 consumidor 57 acordou
+2022/08/08 02:40:05 consumidor 57 consumiu 52
+2022/08/08 02:40:05 consumidor 71 acordou
+2022/08/08 02:40:05 consumidor 71 consumiu 52
+2022/08/08 02:40:05 consumidor 66 acordou
+2022/08/08 02:40:05 consumidor 66 consumiu 52
+2022/08/08 02:40:05 consumidor 59 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 59 acordou
+2022/08/08 02:40:05 consumidor 59 consumiu 52
+2022/08/08 02:40:05 consumidor 63 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 63 acordou
+2022/08/08 02:40:05 consumidor 63 consumiu 52
+2022/08/08 02:40:05 consumidor 64 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 64 acordou
+2022/08/08 02:40:05 consumidor 64 consumiu 52
+2022/08/08 02:40:05 consumidor 60 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 60 acordou
+2022/08/08 02:40:05 consumidor 60 consumiu 52
+2022/08/08 02:40:05 consumidor 65 requisitou ao produtor
+2022/08/08 02:40:05 consumidor 62 acordou
+2022/08/08 02:40:05 consumidor 62 consumiu 52
+2022/08/08 02:40:05 consumidor 65 acordou
+2022/08/08 02:40:05 consumidor 65 consumiu 52
+2022/08/08 02:40:05 Produtor limpou o produto
+2022/08/08 02:40:05 consumidor 42 requisitou ao produtor
+2022/08/08 02:40:05 Produtor acordou
+2022/08/08 02:40:05 produtor produziu 75
+2022/08/08 02:40:05 consumidor 42 acordou
+2022/08/08 02:40:05 consumidor 42 consumiu 75
+2022/08/08 02:40:05 Produtor limpou o produto

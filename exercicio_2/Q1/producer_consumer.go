@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"math/rand"
+	"os"
 	"sync"
 	"time"
 )
@@ -37,11 +39,28 @@ func (q *Queue) changeQueueSize(newSize int) {
 var consumeCond = sync.NewCond(&sync.Mutex{})
 var produceCond = sync.NewCond(&sync.Mutex{})
 var getProductQueue *Queue
+var entries chan string
 var productVessel int
+
+func logIteration(barberShopEntry *chan string) {
+	f, err := os.OpenFile("historico.txt", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+	if err != nil {
+		log.Fatalf("error opening file: %v", err)
+	}
+	defer f.Close()
+
+	log.SetOutput(f)
+
+	var logEntry string
+	for len(*barberShopEntry) != 0 {
+		logEntry = <-*barberShopEntry
+		log.Printf("%s\n", logEntry)
+	}
+}
 
 func produce(n int) {
 	productVessel = n
-	fmt.Printf("produtor produziu %d\n", productVessel)
+	entries <- fmt.Sprintf("produtor produziu %d", productVessel)
 
 	for getProductQueue.queueSize > 0 {
 		consumeCond.Broadcast()
@@ -55,31 +74,30 @@ func producer(marketIsOpen *bool) {
 		produceCond.Wait()
 
 		getProductQueue.setAvailability(false)
-		fmt.Println("Produtor acordou")
+		entries <- fmt.Sprintf("Produtor acordou")
 		produceCond.L.Unlock()
 
 		produce(rand.Intn(100))
 
 		getProductQueue.setAvailability(true)
-		fmt.Println("Produtor limpou o produto")
+		entries <- fmt.Sprintf("Produtor limpou o produto")
 	}
 }
 
 func consume(consumerId int) int {
 	consumeCond.L.Lock()
 
+	entries <- fmt.Sprintf("consumidor %d requisitou ao produtor", consumerId)
 	getProductQueue.changeQueueSize(getProductQueue.queueSize + 1)
-
-	fmt.Printf("consumidor %d requisitou ao produtor\n", consumerId)
 
 	produceCond.Signal()
 	consumeCond.Wait()
-	fmt.Printf("consumidor %d acordou\n", consumerId)
+	entries <- fmt.Sprintf("consumidor %d acordou", consumerId)
 
 	product := productVessel
 
 	getProductQueue.changeQueueSize(getProductQueue.queueSize - 1)
-	fmt.Printf("consumidor %d consumiu %d\n", consumerId, product)
+	entries <- fmt.Sprintf("consumidor %d consumiu %d", consumerId, product)
 	consumeCond.L.Unlock()
 
 	return product
@@ -98,6 +116,8 @@ func main() {
 	rand.Seed(time.Now().UnixNano())
 	productVessel = 0
 
+	entries = make(chan string, 6*numberOfConsumers)
+
 	getProductQueue = new(Queue)
 	getProductQueue.Init()
 
@@ -113,5 +133,5 @@ func main() {
 	wg.Wait()
 	marketIsOpen = false
 
-	//log all entries
+	logIteration(&entries)
 }
