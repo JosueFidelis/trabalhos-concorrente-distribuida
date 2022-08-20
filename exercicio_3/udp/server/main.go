@@ -1,9 +1,11 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"net"
 	"sort"
+	"strconv"
 	"strings"
 )
 
@@ -37,19 +39,30 @@ func handle(conn net.UDPConn) {
 
 	_, addr, err := conn.ReadFromUDP(req)
 	logErr(err)
+	req = bytes.Trim(req, "\x00")
 
-	fmt.Println("Received request; ", string(req[:]))
+	fmt.Println("Received request:", string(req))
 
 	processReply(req, &rep)
 
 	_, err = conn.WriteTo(rep, addr)
 	logErr(err)
 
-	fmt.Println("Sent reply: ", string(rep[:]))
+	fmt.Println("Sent reply:", string(rep))
 }
 
 func processReply(req []byte, rep *[]byte) {
-	numList := strings.Split(string(req[:]), ",")
-	sort.Strings(numList)
-	*rep = []byte(strings.Join(numList, " "))
+	numStrList := strings.Split(string(req), ",")
+	var numList = []int{}
+
+	for _, i := range numStrList {
+		j, err := strconv.Atoi(i)
+		logErr(err)
+		numList = append(numList, j)
+	}
+
+	sort.Ints(numList)
+
+	//Converte em String de novo
+	*rep = []byte(strings.Trim(strings.Join(strings.Fields(fmt.Sprint(numList)), ", "), "[]"))
 }
