@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"net"
-	"strconv"
 )
 
 func logErr(err error) {
@@ -14,8 +13,7 @@ func logErr(err error) {
 }
 
 func main() {
-	rep := make([]byte, 1024)
-	n := 30
+	msg := "1,9,3,8,1,4,1,9,5,1,6,3,1,3,5,1,3,4,4,0"
 
 	addr, err := net.ResolveUDPAddr("udp", "localhost:8081")
 	logErr(err)
@@ -25,20 +23,26 @@ func main() {
 
 	defer conn.Close()
 
-	for i := 0; i < n; i++ {
-		go sendMsg(*conn, i)
+	sendMsg(*conn, msg)
 
-		_, _, err = conn.ReadFromUDP(rep)
-		logErr(err)
-		fmt.Println(string(rep[:]))
-	}
+	rcvRep(*conn)
 }
 
-func sendMsg(conn net.UDPConn, i int) {
+func sendMsg(conn net.UDPConn, msg string) {
 	req := make([]byte, 1024)
 
-	req = []byte("Mensagem " + strconv.Itoa(i+1))
+	req = []byte(msg)
 
 	_, err := conn.Write(req)
 	logErr(err)
+	fmt.Println("Sent request: ", string(req[:]))
+}
+
+func rcvRep(conn net.UDPConn) {
+	rep := make([]byte, 1024)
+
+	_, _, err := conn.ReadFromUDP(rep)
+	logErr(err)
+
+	fmt.Println("Received reply: ", string(rep[:]))
 }

@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net"
+	"sort"
 	"strings"
 )
 
@@ -14,7 +15,6 @@ func logErr(err error) {
 }
 
 func main() {
-
 	addr, err := net.ResolveUDPAddr("udp", "localhost:8081")
 	logErr(err)
 
@@ -32,19 +32,24 @@ func main() {
 }
 
 func handle(conn net.UDPConn) {
-
 	req := make([]byte, 1024)
 	rep := make([]byte, 1024)
 
 	_, addr, err := conn.ReadFromUDP(req)
 	logErr(err)
 
-	fmt.Println(string(req[:]))
+	fmt.Println("Received request; ", string(req[:]))
 
-	rep = []byte(strings.ToUpper(string(req)))
-
-	fmt.Println(string(rep[:]))
+	processReply(req, &rep)
 
 	_, err = conn.WriteTo(rep, addr)
 	logErr(err)
+
+	fmt.Println("Sent reply: ", string(rep[:]))
+}
+
+func processReply(req []byte, rep *[]byte) {
+	numList := strings.Split(string(req[:]), ",")
+	sort.Strings(numList)
+	*rep = []byte(strings.Join(numList, " "))
 }
