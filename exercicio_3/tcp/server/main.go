@@ -17,6 +17,7 @@ func logErr(err error) {
 }
 
 func main() {
+	var currPort int = 8000
 	dstream, err := net.Listen("tcp", ":8080")
 	// defer dstream.Close()
 
@@ -26,7 +27,18 @@ func main() {
 		con, err := dstream.Accept()
 		logErr(err)
 
-		go handle(con)
+		currPort++
+
+		_, err = con.Write([]byte(strconv.Itoa(currPort) + "\n"))
+		logErr(err)
+
+		newDstream, err := net.Listen("tcp", ":"+strconv.Itoa(currPort))
+		logErr(err)
+
+		newCon, err := newDstream.Accept()
+		logErr(err)
+
+		go handle(newCon)
 	}
 }
 
@@ -48,11 +60,11 @@ func sortData(data string) string {
 }
 
 func handle(con net.Conn) {
-	for i := 0; i < 2; i++ {
+	for i := 0; i < 10000; i++ {
 		data, err := bufio.NewReader(con).ReadString('\n')
 
 		logErr(err)
-		fmt.Println("Got:       ", data)
+		//fmt.Println("Got: ", data)
 
 		data = sortData(strings.TrimSpace(data))
 
