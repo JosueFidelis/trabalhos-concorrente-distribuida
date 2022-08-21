@@ -2,9 +2,12 @@ package main
 
 import (
 	"bytes"
+	"errors"
 	"fmt"
 	"net"
+	"os"
 	"strconv"
+	"time"
 )
 
 func logErr(err error) {
@@ -19,15 +22,23 @@ func main() {
 	port := 8080
 
 	greetConn := connect(port)
-
 	defer greetConn.Close()
 
-	sendGreeting(greetConn)
-	conn := connect(rcvGreetPort(greetConn))
+	greetReceived := false
+	var conn net.UDPConn
+	var connPort int
 
-	sendMsg(conn, msg)
+	for !greetReceived {
+		sendGreeting(greetConn)
+		connPort = rcvGreetPort(greetConn, &greetReceived)
+	}
 
-	rcvRep(conn)
+	conn = connect(connPort)
+
+	for i := 0; i < 10000; i++ {
+		sendMsg(conn, msg)
+		rcvRep(conn)
+	}
 }
 
 func connect(port int) net.UDPConn {
@@ -49,22 +60,33 @@ func sendGreeting(conn net.UDPConn) {
 
 	_, err := conn.Write(req)
 	logErr(err)
-	fmt.Println("Sent request:", string(req))
+	//fmt.Println("Sent request:", string(req))
 }
 
-func rcvGreetPort(conn net.UDPConn) int {
+func rcvGreetPort(conn net.UDPConn, greetReceived *bool) int {
 	rep := make([]byte, 1024)
+	timeOutSec := 1
+	conn.SetReadDeadline(time.Now().Add(time.Duration(timeOutSec) * time.Second))
 
 	_, _, err := conn.ReadFromUDP(rep)
 	logErr(err)
-	rep = bytes.Trim(rep, "\x00")
 
-	fmt.Println("Received reply:", string(rep))
+	if !errors.Is(err, os.ErrDeadlineExceeded) {
+		*greetReceived = true
+	}
 
-	connPort, err := strconv.Atoi(string(rep))
-	logErr(err)
+	if *greetReceived {
+		rep = bytes.Trim(rep, "\x00")
 
-	return connPort
+		//fmt.Println("Received reply:", string(rep))
+
+		connPort, err := strconv.Atoi(string(rep))
+		logErr(err)
+
+		return connPort
+	}
+
+	return -1
 }
 
 func sendMsg(conn net.UDPConn, msg string) {
@@ -74,7 +96,7 @@ func sendMsg(conn net.UDPConn, msg string) {
 
 	_, err := conn.Write(req)
 	logErr(err)
-	fmt.Println("Sent request:", string(req))
+	//fmt.Println("Sent request:", string(req))
 }
 
 func rcvRep(conn net.UDPConn) {
