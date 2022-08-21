@@ -17,38 +17,74 @@ func logErr(err error) {
 }
 
 func main() {
-	addr, err := net.ResolveUDPAddr("udp", "localhost:8081")
+	port := 8080
+	currPort := port
+
+	greetConn := createConn(port)
+	defer greetConn.Close()
+
+	for {
+		handleFirstContact(greetConn, &currPort)
+	}
+}
+
+func createConn(port int) net.UDPConn {
+	addr, err := net.ResolveUDPAddr("udp", "localhost:"+strconv.Itoa(port))
 	logErr(err)
 
 	conn, err := net.ListenUDP("udp", addr)
 	logErr(err)
 
-	defer conn.Close()
+	fmt.Println("Servidor UDP aguardando requests na porta:", port, "...")
 
-	fmt.Println("Servidor UDP aguardando requests...")
-
-	for {
-		handle(*conn)
-	}
-
+	return *conn
 }
 
-func handle(conn net.UDPConn) {
+func handleFirstContact(greetConn net.UDPConn, currPort *int) {
 	req := make([]byte, 1024)
 	rep := make([]byte, 1024)
 
-	_, addr, err := conn.ReadFromUDP(req)
-	logErr(err)
-	req = bytes.Trim(req, "\x00")
-
-	fmt.Println("Received request:", string(req))
-
-	processReply(req, &rep)
-
-	_, err = conn.WriteTo(rep, addr)
+	_, addr, err := greetConn.ReadFromUDP(req)
 	logErr(err)
 
-	fmt.Println("Sent reply:", string(rep))
+	fmt.Println("Request de apresentação recebido:", string(req))
+
+	*currPort += 1
+
+	rep = []byte(strconv.Itoa(*currPort))
+	createClientConnection(*currPort)
+
+	_, err = greetConn.WriteTo(rep, addr)
+	logErr(err)
+
+	fmt.Println("Resposta de apresentação enviada:", string(rep))
+}
+
+func createClientConnection(port int) {
+	conn := createConn(port)
+	go handleClientConnection(conn)
+}
+
+func handleClientConnection(conn net.UDPConn) {
+	defer conn.Close()
+
+	for {
+		req := make([]byte, 1024)
+		rep := make([]byte, 1024)
+
+		_, addr, err := conn.ReadFromUDP(req)
+		logErr(err)
+		req = bytes.Trim(req, "\x00")
+
+		fmt.Println("Received request:", string(req))
+
+		processReply(req, &rep)
+
+		_, err = conn.WriteTo(rep, addr)
+		logErr(err)
+
+		fmt.Println("Sent reply:", string(rep))
+	}
 }
 
 func processReply(req []byte, rep *[]byte) {
