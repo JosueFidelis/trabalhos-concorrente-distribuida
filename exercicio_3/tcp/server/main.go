@@ -12,12 +12,11 @@ import (
 func logErr(err error) {
 	if err != nil {
 		panic(err)
-		return
 	}
 }
 
 func main() {
-	var currPort int = 8000
+	var currPort int = 8080
 	dstream, err := net.Listen("tcp", ":8080")
 	// defer dstream.Close()
 
@@ -32,13 +31,7 @@ func main() {
 		_, err = con.Write([]byte(strconv.Itoa(currPort) + "\n"))
 		logErr(err)
 
-		newDstream, err := net.Listen("tcp", ":"+strconv.Itoa(currPort))
-		logErr(err)
-
-		newCon, err := newDstream.Accept()
-		logErr(err)
-
-		go handle(newCon)
+		go handleConnections(currPort)
 	}
 }
 
@@ -59,7 +52,13 @@ func sortData(data string) string {
 	return strings.Trim(strings.Join(strings.Fields(fmt.Sprint(parsedSlc)), " "), "[]")
 }
 
-func handle(con net.Conn) {
+func handleConnections(currPort int) {
+	Dstream, err := net.Listen("tcp", ":"+strconv.Itoa(currPort))
+	logErr(err)
+
+	con, err := Dstream.Accept()
+	logErr(err)
+
 	for i := 0; i < 10000; i++ {
 		data, err := bufio.NewReader(con).ReadString('\n')
 

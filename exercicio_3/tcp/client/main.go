@@ -7,19 +7,13 @@ import (
 	"strings"
 )
 
-func logErr(err error) {
-	if err != nil {
-		panic(err)
-		return
-	}
-}
-
 func main() {
 	//connect to this socket
 	connClient, _ := net.Dial("tcp", "127.0.0.1:8080")
 
 	//listen for reply
 	newPort, _ := bufio.NewReader(connClient).ReadString('\n')
+
 	fmt.Print("Port from server: " + newPort)
 	connClient.Close()
 
@@ -40,7 +34,11 @@ func main() {
 
 		//listen for reply
 		message, _ := bufio.NewReader(newConnClient).ReadString('\n')
-		fmt.Print("Message from server: " + message)
+		if i == 10000-1 {
+			fmt.Print("Message from server: " + message)
+		}
+		//fmt.Print("Message from server: " + message)
 	}
+
 	newConnClient.Close()
 }
