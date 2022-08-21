@@ -12,8 +12,8 @@ import (
 	"time"
 )
 
-func logDuration(fileName string) {
-
+func logRtt(numberOfClientsRunning int, rttMean float64, rttSd float64) {
+	fileName := fmt.Sprintf("log_with_%d_clients.txt", numberOfClientsRunning)
 	f, err := os.OpenFile(fileName, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if err != nil {
 		log.Fatalf("error opening file: %v", err)
@@ -21,7 +21,8 @@ func logDuration(fileName string) {
 	defer f.Close()
 
 	log.SetOutput(f)
-	log.Printf("%d\n", 1)
+	log.Printf("Mean: %f nanoseconds\n", rttMean)
+	log.Printf("Standard deviation: %f nanoseconds\n", rttSd)
 }
 
 func main() {
@@ -76,8 +77,7 @@ func main() {
 
 		rttSd = math.Sqrt(rttSd / float64(numberOfIterations))
 
-		fmt.Println(rttMean)
-		fmt.Println(rttSd)
+		logRtt(numberOfClientsRunning, rttMean, rttSd)
 	}
 
 }

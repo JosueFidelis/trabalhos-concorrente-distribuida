@@ -4,6 +4,8 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
+	"log"
+	"math"
 	"net"
 	"os"
 	"strconv"
@@ -17,7 +19,27 @@ func logErr(err error) {
 	}
 }
 
+func logRtt(numberOfClientsRunning int, rttMean float64, rttSd float64) {
+	fileName := fmt.Sprintf("log_with_%d_clients.txt", numberOfClientsRunning)
+	f, err := os.OpenFile(fileName, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+	if err != nil {
+		log.Fatalf("error opening file: %v", err)
+	}
+	defer f.Close()
+
+	log.SetOutput(f)
+	log.Printf("Mean: %f nanoseconds\n", rttMean)
+	log.Printf("Standard deviation: %f nanoseconds\n", rttSd)
+}
+
 func main() {
+	numberOfClientsRunning, _ := strconv.Atoi(os.Args[1])
+	numberOfIterations := 10000
+	numberOfIterationsToDiscard := 1000
+
+	var rttArray = make([]float64, numberOfIterations)
+	rttMean := 0.0
+
 	msg := "35,87,52,35,79,62,42,29,23,9,87,29,72,51,80,21,69,8,70,90"
 	port := 8080
 
@@ -35,9 +57,32 @@ func main() {
 
 	conn = connect(connPort)
 
-	for i := 0; i < 10000; i++ {
+	for i := 0; i < numberOfIterations+numberOfIterationsToDiscard; i++ {
+		start := time.Now()
 		sendMsg(conn, msg)
 		rcvRep(conn)
+		elapsed := time.Since(start).Nanoseconds()
+
+		if i-numberOfIterationsToDiscard >= 0 {
+			rttArray[i-numberOfIterationsToDiscard] = float64(elapsed)
+			rttMean += float64(elapsed)
+		}
+	}
+
+	if numberOfClientsRunning != -1 {
+		rttMean /= float64(numberOfIterations)
+		rttSd := 0.0
+
+		for i := 0; i < numberOfIterations; i++ {
+			rttSd += math.Pow(rttArray[i]-rttMean, 2)
+			fmt.Print(rttArray[i])
+			fmt.Print("  ;  ")
+		}
+		fmt.Print("\n")
+
+		rttSd = math.Sqrt(rttSd / float64(numberOfIterations))
+
+		logRtt(numberOfClientsRunning, rttMean, rttSd)
 	}
 }
 
@@ -105,5 +150,5 @@ func rcvRep(conn net.UDPConn) {
 	_, _, err := conn.ReadFromUDP(rep)
 	logErr(err)
 
-	fmt.Println("Received reply:", string(rep))
+	//fmt.Println("Received reply:", string(rep))
 }
