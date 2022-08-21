@@ -46,8 +46,7 @@ func handleFirstContact(greetConn net.UDPConn, currPort *int) {
 
 	_, addr, err := greetConn.ReadFromUDP(req)
 	logErr(err)
-
-	fmt.Println("Request de apresentação recebido:", string(req))
+	//fmt.Println("Request de apresentação recebido:", string(req))
 
 	*currPort += 1
 
@@ -56,7 +55,6 @@ func handleFirstContact(greetConn net.UDPConn, currPort *int) {
 
 	_, err = greetConn.WriteTo(rep, addr)
 	logErr(err)
-
 	fmt.Println("Resposta de apresentação enviada:", string(rep))
 }
 
@@ -76,14 +74,14 @@ func handleClientConnection(conn net.UDPConn) {
 		logErr(err)
 		req = bytes.Trim(req, "\x00")
 
-		fmt.Println("Received request:", string(req))
+		//fmt.Println("Received request:", string(req))
 
 		processReply(req, &rep)
 
 		_, err = conn.WriteTo(rep, addr)
 		logErr(err)
 
-		fmt.Println("Sent reply:", string(rep))
+		//fmt.Println("Sent reply:", string(rep))
 	}
 }
 
