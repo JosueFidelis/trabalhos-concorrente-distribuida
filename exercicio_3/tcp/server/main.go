@@ -59,7 +59,7 @@ func handleConnections(currPort int) {
 	con, err := Dstream.Accept()
 	logErr(err)
 
-	for i := 0; i < 10000; i++ {
+	for {
 		data, err := bufio.NewReader(con).ReadString('\n')
 
 		logErr(err)
