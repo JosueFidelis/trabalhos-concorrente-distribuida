@@ -14,7 +14,7 @@ import (
 )
 
 const (
-	port = ":8080"
+	port = ":50051"
 )
 
 func logErr(err error) {
