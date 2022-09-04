@@ -53,13 +53,16 @@ func sortData(data string) string {
 }
 
 func handleConnections(currPort int) {
+	numberOfIterations := 10000
+	numberOfIterationsToDiscard := 1000
+
 	Dstream, err := net.Listen("tcp", ":"+strconv.Itoa(currPort))
 	logErr(err)
 
 	con, err := Dstream.Accept()
 	logErr(err)
 
-	for {
+	for i := 0; i < numberOfIterations+numberOfIterationsToDiscard; i++ {
 		data, err := bufio.NewReader(con).ReadString('\n')
 
 		logErr(err)
