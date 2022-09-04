@@ -35,7 +35,7 @@ func createConn(port int) net.UDPConn {
 	conn, err := net.ListenUDP("udp", addr)
 	logErr(err)
 
-	fmt.Println("Servidor UDP aguardando requests na porta:", port, "...")
+	//fmt.Println("Servidor UDP aguardando requests na porta:", port, "...")
 
 	return *conn
 }
@@ -55,7 +55,7 @@ func handleFirstContact(greetConn net.UDPConn, currPort *int) {
 
 	_, err = greetConn.WriteTo(rep, addr)
 	logErr(err)
-	fmt.Println("Resposta de apresentação enviada:", string(rep))
+	//fmt.Println("Resposta de apresentação enviada:", string(rep))
 }
 
 func createClientConnection(port int) {
