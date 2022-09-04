@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package sortarray;
+
+option go_package = "example.com/go-sortarray-grpc;go_sortarray_grpc";
+
+service SortArray {
+    rpc Sort(Arr) returns (Arr) {}
+}
+
+message Arr {
+    string data = 1;
+}
