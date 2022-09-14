@@ -71,7 +71,7 @@ func main() {
 	logErr(err)
 
 	func() {
-		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+		ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
 		defer cancel()
 		for msg := range msgs {
 			array := string(msg.Body)

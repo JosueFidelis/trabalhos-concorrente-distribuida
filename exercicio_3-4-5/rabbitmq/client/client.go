@@ -81,7 +81,7 @@ func sortArray(data string, numberOfClientsRunning int) {
 
 	corrId := randomString(32)
 
-	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
 	defer cancel()
 
 	var elapsed int64
@@ -137,6 +137,5 @@ func main() {
 
 	data := "53,15,56,41,33,78,42,51,11,8,78,95,33,91,4,36,50,46,56,63,31,84,7,4,44,58,67,66,10,39,75,78,67,95,56,43,57,63,91,45,40,16,38,48,77,17,8,42,75,1,20,29,46,69,62,82,34,1,50,80,31,61,6,39,20,63,84,76,37,26,2,13,13,43,18,8,46,86,81,49,60,12,44,18,3,17,39,48,64,47,53,95,22,94,19,25,3,57,43,59"
 
-	log.Printf(" [x] Requesting fib(%d)", data)
 	sortArray(data, numberOfClientsRunning)
 }
