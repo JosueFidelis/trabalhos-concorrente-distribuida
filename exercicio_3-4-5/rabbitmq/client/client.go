@@ -13,9 +13,9 @@ import (
 	amqp "github.com/rabbitmq/amqp091-go"
 )
 
-func failOnError(err error, msg string) {
+func logErr(err error) {
 	if err != nil {
-		log.Panicf("%s: %s", msg, err)
+		panic(err)
 	}
 }
 
@@ -51,11 +51,11 @@ func sortArray(data string, numberOfClientsRunning int) {
 	rttMean := 0.0
 
 	conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
-	failOnError(err, "Failed to connect to RabbitMQ")
+	logErr(err)
 	defer conn.Close()
 
 	ch, err := conn.Channel()
-	failOnError(err, "Failed to open a channel")
+	logErr(err)
 	defer ch.Close()
 
 	q, err := ch.QueueDeclare(
@@ -66,7 +66,7 @@ func sortArray(data string, numberOfClientsRunning int) {
 		false, // noWait
 		nil,   // arguments
 	)
-	failOnError(err, "Failed to declare a queue")
+	logErr(err)
 
 	msgs, err := ch.Consume(
 		q.Name, // queue
@@ -77,7 +77,7 @@ func sortArray(data string, numberOfClientsRunning int) {
 		false,  // no-wait
 		nil,    // args
 	)
-	failOnError(err, "Failed to register a consumer")
+	logErr(err)
 
 	corrId := randomString(32)
 
@@ -99,12 +99,12 @@ func sortArray(data string, numberOfClientsRunning int) {
 				ReplyTo:       q.Name,
 				Body:          []byte(data),
 			})
-		failOnError(err, "Failed to publish a message")
+		logErr(err)
 
-		for d := range msgs {
-			if corrId == d.CorrelationId {
-				_ = string(d.Body)
-				failOnError(err, "Failed to convert body to integer")
+		for msg := range msgs {
+			if corrId == msg.CorrelationId {
+				_ = string(msg.Body)
+				logErr(err)
 				elapsed = time.Since(start).Nanoseconds()
 				break
 			}

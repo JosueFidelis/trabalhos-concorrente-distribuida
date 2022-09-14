@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"fmt"
-	"log"
 	"sort"
 	"strconv"
 	"strings"
@@ -11,12 +10,6 @@ import (
 
 	amqp "github.com/rabbitmq/amqp091-go"
 )
-
-func failOnError(err error, msg string) {
-	if err != nil {
-		log.Panicf("%s: %s", msg, err)
-	}
-}
 
 func logErr(err error) {
 	if err != nil {
@@ -42,52 +35,62 @@ func sortData(data string) string {
 
 func main() {
 	conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
-	failOnError(err, "Failed to connect to RabbitMQ")
+	logErr(err)
 	defer conn.Close()
 
 	ch, err := conn.Channel()
-	failOnError(err, "Failed to open a channel")
+	logErr(err)
 	defer ch.Close()
+
+	q, err := ch.QueueDeclare(
+		"rpc_queue", // name
+		false,       // durable
+		false,       // delete when unused
+		false,       // exclusive
+		false,       // no-wait
+		nil,         // arguments
+	)
+	logErr(err)
 
 	err = ch.Qos(
 		1,     // prefetch count
 		0,     // prefetch size
 		false, // global
 	)
-	failOnError(err, "Failed to set QoS")
+	logErr(err)
 
 	msgs, err := ch.Consume(
-		"rpc_queue", // queue
-		"",          // consumer
-		false,       // auto-ack
-		false,       // exclusive
-		false,       // no-local
-		false,       // no-wait
-		nil,         // args
+		q.Name, // queue
+		"",     // consumer
+		false,  // auto-ack
+		false,  // exclusive
+		false,  // no-local
+		false,  // no-wait
+		nil,    // args
 	)
-	failOnError(err, "Failed to register a consumer")
+	logErr(err)
 
 	func() {
 		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 		defer cancel()
-		for d := range msgs {
-			array := string(d.Body)
+		for msg := range msgs {
+			array := string(msg.Body)
 
 			response := sortData(array)
 
 			err := ch.PublishWithContext(ctx,
-				"",        // exchange
-				d.ReplyTo, // routing key
-				false,     // mandatory
-				false,     // immediate
+				"",          // exchange
+				msg.ReplyTo, // routing key
+				false,       // mandatory
+				false,       // immediate
 				amqp.Publishing{
 					ContentType:   "text/plain",
-					CorrelationId: d.CorrelationId,
+					CorrelationId: msg.CorrelationId,
 					Body:          []byte(response),
 				})
-			failOnError(err, "Failed to publish a message")
+			logErr(err)
 
-			d.Ack(false)
+			msg.Ack(false)
 		}
 	}()
 }
