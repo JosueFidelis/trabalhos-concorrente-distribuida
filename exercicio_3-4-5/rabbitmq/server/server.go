@@ -84,7 +84,7 @@ func main() {
 		for d := range msgs {
 			array := string(d.Body)
 
-			log.Printf(" [.] fib(%s)", array)
+			//log.Printf(" [.] fib(%s)", array)
 			response := sortData(array)
 
 			err := ch.PublishWithContext(ctx,
