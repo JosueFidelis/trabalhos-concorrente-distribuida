@@ -1,2 +1,2 @@
-2022/09/04 11:21:44 Mean: 288899.500000 nanoseconds
-2022/09/04 11:21:44 Standard deviation: 459602.565856 nanoseconds
+2022/09/14 01:12:20 Mean: 742170.030000 nanoseconds
+2022/09/14 01:12:20 Standard deviation: 548550.281647 nanoseconds
