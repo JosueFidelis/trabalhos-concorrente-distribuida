@@ -33,7 +33,6 @@ func failOnError(err error, msg string) {
 func main() {
 	messageSize := getMessageSize(os.Args)
 	timeFormat := time.RFC3339Nano
-	fmt.Println(messageSize)
 
 	numberOfsamples := 10000
 	samplesToDiscard := 1000
