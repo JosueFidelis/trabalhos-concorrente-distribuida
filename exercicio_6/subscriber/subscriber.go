@@ -11,7 +11,7 @@ import (
 	amqp "github.com/rabbitmq/amqp091-go"
 )
 
-func logTmp(messageSize int, tmpMean float64) {
+func logPmt(messageSize int, tmpMean float64) {
 	fileName := fmt.Sprintf("log_with_%d_bytes_size.txt", messageSize)
 	f, err := os.OpenFile(fileName, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if err != nil {
@@ -37,7 +37,7 @@ func main() {
 
 	numberOfsamples := 10000
 	samplesToDiscard := 1000
-	tmp := 0.0
+	pmt := 0.0
 
 	conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
 	failOnError(err, "Failed to connect to RabbitMQ")
@@ -94,15 +94,7 @@ func main() {
 		messageStr := getMessageFromBody(msg.Body)
 
 		if messageStr != "no" {
-			samplesReceived++
-
-			if samplesReceived > samplesToDiscard {
-				messageTime, err := time.Parse(timeFormat, messageStr)
-				failOnError(err, "time in wrong format")
-
-				elapsed := time.Since(messageTime).Nanoseconds()
-				tmp += float64(elapsed)
-			}
+			samplesReceived, pmt = incrementAndGetPmt(samplesReceived, samplesToDiscard, timeFormat, messageStr, pmt)
 		}
 
 		if samplesReceived >= numberOfsamples+samplesToDiscard {
@@ -110,9 +102,22 @@ func main() {
 		}
 	}
 
-	tmp /= float64(numberOfsamples)
+	pmt /= float64(numberOfsamples)
 
-	logTmp(messageSize, tmp)
+	logPmt(messageSize, pmt)
+}
+
+func incrementAndGetPmt(samplesReceived int, samplesToDiscard int, timeFormat string, messageStr string, pmt float64) (int, float64) {
+	samplesReceived++
+
+	if samplesReceived > samplesToDiscard {
+		messageTime, err := time.Parse(timeFormat, messageStr)
+		failOnError(err, "time in wrong format")
+
+		elapsed := time.Since(messageTime).Nanoseconds()
+		pmt += float64(elapsed)
+	}
+	return samplesReceived, pmt
 }
 
 func getMessageFromBody(message []byte) string {
