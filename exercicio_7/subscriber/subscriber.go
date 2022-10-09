@@ -46,6 +46,13 @@ func main() {
 	failOnError(err, "Failed to open a channel")
 	defer ch.Close()
 
+	err = ch.Qos(
+		pc,    // prefetch count
+		0,     // prefetch size
+		false, // global
+	)
+	failOnError(err, "Failed to configure Qos")
+
 	err = ch.ExchangeDeclare(
 		"task",   // name
 		"fanout", // type
@@ -79,7 +86,7 @@ func main() {
 	msgs, err := ch.Consume(
 		q.Name, // queue
 		"",     // consumer
-		true,   // auto-ack
+		false,  // auto-ack
 		false,  // exclusive
 		false,  // no-local
 		false,  // no-wait
@@ -90,11 +97,10 @@ func main() {
 	samplesReceived := 0
 
 	for msg := range msgs {
+		msg.Ack(true)
+		currTime := time.Now()
 		messageStr := getMessageFromBody(msg.Body)
-
-		if messageStr != "no" {
-			samplesReceived, pmt = incrementAndGetPmt(samplesReceived, samplesToDiscard, timeFormat, messageStr, pmt)
-		}
+		samplesReceived, pmt = incrementAndGetPmt(samplesReceived, samplesToDiscard, timeFormat, messageStr, currTime, pmt)
 
 		if samplesReceived >= numberOfsamples+samplesToDiscard {
 			break
@@ -106,14 +112,14 @@ func main() {
 	logPmt(pc, pmt)
 }
 
-func incrementAndGetPmt(samplesReceived int, samplesToDiscard int, timeFormat string, messageStr string, pmt float64) (int, float64) {
+func incrementAndGetPmt(samplesReceived int, samplesToDiscard int, timeFormat string, messageStr string, currTime time.Time, pmt float64) (int, float64) {
 	samplesReceived++
 
 	if samplesReceived > samplesToDiscard {
 		messageTime, err := time.Parse(timeFormat, messageStr)
 		failOnError(err, "time in wrong format")
 
-		elapsed := time.Since(messageTime).Nanoseconds()
+		elapsed := messageTime.Sub(currTime).Nanoseconds()
 		pmt += float64(elapsed)
 	}
 	return samplesReceived, pmt
