@@ -21,7 +21,7 @@ func logPmt(PC int, tmpMean float64) {
 
 	log.SetOutput(f)
 	log.Printf("Mean: %f nanoseconds\n", tmpMean)
-	log.Printf("Size: %d bytes\n", PC)
+	log.Printf("PC Size: %d \n", PC)
 }
 
 func failOnError(err error, msg string) {
@@ -119,7 +119,7 @@ func incrementAndGetPmt(samplesReceived int, samplesToDiscard int, timeFormat st
 		messageTime, err := time.Parse(timeFormat, messageStr)
 		failOnError(err, "time in wrong format")
 
-		elapsed := messageTime.Sub(currTime).Nanoseconds()
+		elapsed := currTime.Sub(messageTime).Nanoseconds()
 		pmt += float64(elapsed)
 	}
 	return samplesReceived, pmt
