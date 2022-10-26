@@ -1,0 +1,175 @@
+2022/10/25 22:55:53 INFO: Starting server at port :8080
+2022/10/25 22:55:57 INFO:
+adding: 1
+in seat: 5
+Occupied seats: 1
+
+2022/10/25 22:55:57 INFO:
+Sending: 0,0,0,0,0,1
+
+2022/10/25 22:55:57 INFO:
+Sending: 0,0,0,0,0,1
+
+2022/10/25 22:55:57 INFO:
+adding: 2
+in seat: 4
+Occupied seats: 2
+
+2022/10/25 22:55:57 INFO:
+Sending: 0,0,0,0,2,1
+
+2022/10/25 22:55:57 INFO:
+Sending: 0,0,0,0,2,1
+
+2022/10/25 22:55:57 INFO:
+Imma head out: 1
+Occupied seats: 1
+
+2022/10/25 22:55:57 INFO:
+Sending: 0,0,0,0,2,0
+
+2022/10/25 22:55:58 INFO:
+adding: 6
+in seat: 5
+Occupied seats: 2
+
+2022/10/25 22:55:58 INFO:
+Sending: 0,0,0,0,2,6
+
+2022/10/25 22:55:58 INFO:
+adding: 10
+in seat: 3
+Occupied seats: 3
+
+2022/10/25 22:55:58 INFO:
+Sending: 0,0,0,10,2,6
+
+2022/10/25 22:55:58 INFO:
+adding: 8
+in seat: 2
+Occupied seats: 4
+
+2022/10/25 22:55:58 INFO:
+Sending: 0,0,8,10,2,6
+
+2022/10/25 22:55:58 INFO:
+adding: 3
+in seat: 1
+Occupied seats: 5
+
+2022/10/25 22:55:58 INFO:
+Sending: -1,3,8,10,2,6
+
+2022/10/25 22:55:58 INFO:
+Sending: 0,3,8,10,2,6
+
+2022/10/25 22:55:58 INFO:
+Sending: -1,3,8,10,2,6
+
+2022/10/25 22:55:58 INFO:
+Sending: -1,3,8,10,2,6
+
+2022/10/25 22:55:58 INFO:
+Sending: -1,3,8,10,2,6
+
+2022/10/25 22:55:58 INFO:
+Sending: -1,3,8,10,2,6
+
+2022/10/25 22:55:58 INFO:
+Sending: -1,3,8,10,2,6
+
+2022/10/25 22:55:58 INFO:
+Imma head out: 3
+Occupied seats: 4
+
+2022/10/25 22:55:58 INFO:
+Sending: -1,0,8,10,2,6
+
+2022/10/25 22:55:59 INFO:
+Imma head out: 8
+Occupied seats: 3
+
+2022/10/25 22:55:59 INFO:
+Sending: -1,0,0,10,2,6
+
+2022/10/25 22:55:59 INFO:
+Imma head out: 10
+Occupied seats: 2
+
+2022/10/25 22:55:59 INFO:
+Sending: -1,0,0,0,2,6
+
+2022/10/25 22:55:59 INFO:
+Imma head out: 6
+Occupied seats: 1
+
+2022/10/25 22:55:59 INFO:
+Sending: -1,0,0,0,2,0
+
+2022/10/25 22:55:59 INFO:
+Imma head out: 2
+Occupied seats: 0
+
+2022/10/25 22:55:59 INFO:
+Sending: 0,0,0,0,0,0
+
+2022/10/25 22:55:59 INFO:
+adding: 7
+in seat: 5
+Occupied seats: 1
+
+2022/10/25 22:55:59 INFO:
+Sending: 0,0,0,4,9,7
+
+2022/10/25 22:55:59 INFO:
+adding: 9
+in seat: 4
+Occupied seats: 2
+
+2022/10/25 22:55:59 INFO:
+Sending: 0,0,5,4,9,7
+
+2022/10/25 22:55:59 INFO:
+adding: 4
+in seat: 3
+Occupied seats: 3
+
+2022/10/25 22:55:59 INFO:
+Sending: 0,0,5,4,9,7
+
+2022/10/25 22:55:59 INFO:
+adding: 5
+in seat: 2
+Occupied seats: 4
+
+2022/10/25 22:55:59 INFO:
+Sending: 0,0,5,4,9,7
+
+2022/10/25 22:55:59 INFO:
+Imma head out: 4
+Occupied seats: 3
+
+2022/10/25 22:55:59 INFO:
+Sending: 0,0,5,0,9,7
+
+2022/10/25 22:55:59 INFO:
+Imma head out: 5
+Occupied seats: 2
+
+2022/10/25 22:55:59 INFO:
+Sending: 0,0,0,0,9,7
+
+2022/10/25 22:56:00 INFO:
+Imma head out: 7
+Occupied seats: 1
+
+2022/10/25 22:56:00 INFO:
+Sending: 0,0,0,0,9,0
+
+2022/10/25 22:56:01 INFO:
+Imma head out: 9
+Occupied seats: 0
+
+2022/10/25 22:56:01 INFO:
+Sending: 0,0,0,0,0,0
+

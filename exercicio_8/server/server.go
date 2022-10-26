@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net"
 	"os"
@@ -58,15 +59,17 @@ func (s *Server) removeElement(id string) {
 		s.Connection = append(s.Connection[:index], s.Connection[index+1:]...)
 	}
 
+	var logString string
+
 	for i := 1; i < 6; i++ {
 		if s.Seats[i] == id {
 			s.Seats[i] = "0"
 			seatCount--
-			grpcLog.Info("Imma head out: ", id)
+			logString = fmt.Sprintf("\nImma head out: %s\nOccupied seats: %d\n ", id, seatCount)
 		}
 	}
 
-	grpcLog.Info("Occupied seats: ", seatCount)
+	grpcLog.Info(logString)
 
 	if seatCount == 0 {
 		s.Seats[0] = "0"
@@ -89,9 +92,9 @@ func (s *Server) addElement(id string) {
 	s.Seats[availableSeat] = id
 	seatCount++
 
-	grpcLog.Info("adding: ", id)
-	grpcLog.Info("in seat: ", availableSeat)
-	grpcLog.Info("Occupied seats: ", seatCount)
+	logString := fmt.Sprintf("\nadding: %s\nin seat: %d\nOccupied seats: %d\n ", id, availableSeat, seatCount)
+
+	grpcLog.Info(logString)
 
 	if seatCount == 5 {
 		s.Seats[0] = "-1"
@@ -110,7 +113,7 @@ func (s *Server) BroadcastMessage(ctx context.Context, msg *proto.Message) (*pro
 	}
 
 	msg.Content = s.Seats[0] + "," + s.Seats[1] + "," + s.Seats[2] + "," + s.Seats[3] + "," + s.Seats[4] + "," + s.Seats[5]
-	grpcLog.Info("Sending: ", msg.Content)
+	grpcLog.Info("\nSending: ", msg.Content, "\n ")
 
 	for _, conn := range s.Connection {
 		wait.Add(1)
@@ -119,7 +122,6 @@ func (s *Server) BroadcastMessage(ctx context.Context, msg *proto.Message) (*pro
 			defer wait.Done()
 
 			err := conn.stream.Send(msg)
-			//grpcLog.Info("Sending message to: ", conn.stream)
 
 			if err != nil {
 				grpcLog.Errorf("Error with Stream: %v - Error: %v", conn.stream, err)
