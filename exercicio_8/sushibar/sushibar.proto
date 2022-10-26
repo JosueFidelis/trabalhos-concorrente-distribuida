@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package sushibar;
+
+option go_package = "example.com/go-sushibar-grpc;go_sushibar_grpc";
+
+message User {
+  string id = 1;
+}
+
+message Message {
+  string id = 1;
+  string content = 2;
+}
+
+message Connect {
+  User user = 1;
+}
+
+message Close {}
+
+service Broadcast {
+  rpc CreateStream(Connect) returns (stream Message);
+  rpc BroadcastMessage(Message) returns (Close);
+}
