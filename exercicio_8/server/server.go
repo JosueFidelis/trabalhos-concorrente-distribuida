@@ -74,7 +74,7 @@ func (s *Server) removeElement(id string) {
 }
 
 func (s *Server) addElement(id string) {
-	if s.Seats[0] == "-1" || seatCount >= 6 {
+	if s.Seats[0] == "-1" || seatCount >= 5 {
 		return
 	}
 
@@ -96,8 +96,6 @@ func (s *Server) addElement(id string) {
 	if seatCount == 5 {
 		s.Seats[0] = "-1"
 	}
-	msg := s.Seats[0] + "," + s.Seats[1] + "," + s.Seats[2] + "," + s.Seats[3] + "," + s.Seats[4] + "," + s.Seats[5]
-	grpcLog.Info("seats: ", msg)
 }
 
 func (s *Server) BroadcastMessage(ctx context.Context, msg *proto.Message) (*proto.Close, error) {
